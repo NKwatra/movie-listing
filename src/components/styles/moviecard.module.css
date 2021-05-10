@@ -1,0 +1,9 @@
+.description {
+  height: 2.5rem;
+  overflow: hidden;
+}
+
+.ratingContainer {
+  display: flex;
+  align-items: center;
+}

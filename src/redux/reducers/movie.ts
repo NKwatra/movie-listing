@@ -19,10 +19,17 @@ export const loadAllMovies = createAsyncThunk("movies/load", async () => {
   return results;
 });
 
+export const movieCategories = [
+  "now_playing",
+  "popular",
+  "top_rated",
+  "upcoming",
+];
+
 function checkMovieCategory(
   key: string
 ): key is keyof Omit<MovieListState, "dataLoaded" | "error" | "loading"> {
-  return ["now_playing", "popular", "top_rated", "upcoming"].includes(key);
+  return movieCategories.includes(key);
 }
 
 const movieSlice = createSlice({

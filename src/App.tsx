@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Movies from "./routes/Movies";
 
 const { Header, Content } = Layout;
 
@@ -16,7 +17,7 @@ function App() {
         <Content>
           <Switch>
             <Route path="/movies">
-              <span>Movies</span>
+              <Movies />
             </Route>
             <Route path="/tv-shows">
               <span>TV Shows</span>
