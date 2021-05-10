@@ -1,11 +1,9 @@
-import { Movie } from "../movie";
+import { Item } from "../item";
+import { Data } from "./data";
 
-export interface MovieListState {
-  dataLoaded: boolean;
-  now_playing: Movie[];
-  popular: Movie[];
-  top_rated: Movie[];
-  upcoming: Movie[];
-  loading: boolean;
-  error: boolean;
+export interface MovieListState extends Data {
+  now_playing: Item[];
+  popular: Item[];
+  top_rated: Item[];
+  upcoming: Item[];
 }

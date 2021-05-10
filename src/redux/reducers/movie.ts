@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { loadMovies } from "../../lib/movies";
-import { Movie } from "../../types/movie";
+import { Item } from "../../types/item";
 import { MovieListState } from "../../types/reducers/movie";
 import { RootState } from "../store";
 
@@ -48,16 +48,16 @@ const movieSlice = createSlice({
       state,
       action: PayloadAction<{
         now_playing: {
-          results: Movie[];
+          results: Item[];
         };
         popular: {
-          results: Movie[];
+          results: Item[];
         };
         top_rated: {
-          results: Movie[];
+          results: Item[];
         };
         upcoming: {
-          results: Movie[];
+          results: Item[];
         };
       }>
     ) => {

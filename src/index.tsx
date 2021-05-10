@@ -5,9 +5,6 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import { loadAllMovies } from "./redux/reducers/movie";
-
-store.dispatch(loadAllMovies());
 
 ReactDOM.render(
   <Provider store={store}>

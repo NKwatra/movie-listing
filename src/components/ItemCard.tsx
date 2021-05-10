@@ -1,15 +1,16 @@
 import { Card, Col, Space } from "antd";
 import React from "react";
-import { MovieCardProps } from "../types/components/MovieCard";
+import { ItemCardProps } from "../types/components/ItemCard";
 import styles from "./styles/moviecard.module.css";
 import { AiFillStar } from "react-icons/ai";
 
-const MovieCard: React.FC<MovieCardProps> = ({
+const MovieCard: React.FC<ItemCardProps> = ({
   overview,
-  imdb_id,
+  id,
   poster_path,
   release_date,
   vote_average,
+  first_air_date,
 }) => {
   return (
     <Col span={4}>
@@ -33,7 +34,10 @@ const MovieCard: React.FC<MovieCardProps> = ({
                   <AiFillStar />
                 </span>
                 <span>•</span>
-                <span>{release_date.substring(0, 4)}</span>
+                <span>
+                  {release_date?.substring(0, 4) ||
+                    first_air_date?.substring(0, 4)}
+                </span>
               </Space>
             </Space>
           }

@@ -4,6 +4,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Movies from "./routes/Movies";
+import Home from "./routes/Home";
 
 const { Header, Content } = Layout;
 
@@ -23,7 +24,7 @@ function App() {
               <span>TV Shows</span>
             </Route>
             <Route path="/">
-              <span>Home</span>
+              <Home />
             </Route>
           </Switch>
         </Content>

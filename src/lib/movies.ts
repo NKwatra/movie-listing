@@ -1,4 +1,4 @@
-import { Movie } from "../types/movie";
+import { Item } from "../types/item";
 import { MovieListState } from "../types/reducers/movie";
 import { client } from "./client";
 
@@ -9,7 +9,7 @@ import { client } from "./client";
  */
 function loadMoviesOfType(
   type: keyof Omit<MovieListState, "dataLoaded" | "error" | "loading">
-): Promise<{ results: Movie[] }> {
+): Promise<{ results: Item[] }> {
   return client
     .get(`/movie/${type}`, {
       params: {
