@@ -1,0 +1,16 @@
+.activeLink {
+  color: #ffffff;
+  font-weight: bolder;
+}
+
+.link {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.link:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.logo {
+  max-width: 100px;
+}
