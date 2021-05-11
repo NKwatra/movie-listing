@@ -1,6 +1,7 @@
 .description {
-  height: 2.5rem;
+  height: 2.8rem;
   overflow: hidden;
+  word-break: break-all;
 }
 
 .ratingContainer {

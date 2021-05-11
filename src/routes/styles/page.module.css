@@ -4,6 +4,7 @@
 
 .row {
   padding-top: 1.5rem;
+  overflow-x: scroll;
 }
 
 .loadingContainer {
@@ -12,4 +13,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.movieCategoryLabel {
+  margin-top: 1.5rem;
 }

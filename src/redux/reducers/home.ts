@@ -11,10 +11,13 @@ const initialState: HomePageState = {
   items: [],
 };
 
-export const loadTrendingItem = createAsyncThunk("home/load", async () => {
-  const result = await loadHomePageItems();
-  return result;
-});
+export const loadTrendingItem = createAsyncThunk(
+  "home/load",
+  async (page: number) => {
+    const result = await loadHomePageItems(page);
+    return result;
+  }
+);
 
 const home = createSlice({
   name: "home",
@@ -37,7 +40,7 @@ const home = createSlice({
       state.dataLoaded = true;
       state.error = false;
       state.loading = false;
-      state.items = action.payload.results;
+      state.items.push(...action.payload.results);
     },
     //@ts-ignore
     [loadTrendingItem.rejected]: (state) => {

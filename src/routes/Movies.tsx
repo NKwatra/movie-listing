@@ -46,19 +46,28 @@ const Movies: React.FC = () => {
       )}
       <div className={styles.container}>
         {movieCategories.map((category) => (
-          <Row key={category} gutter={[16, 32]} className={styles.row}>
-            <Col span={24}>
-              <Title level={2}>{capitalize(category)}</Title>
-            </Col>
-            {movies[
-              category as keyof Omit<
-                MovieListState,
-                "dataLoaded" | "error" | "loading"
-              >
-            ].map((movie) => (
-              <ItemCard key={movie.id} {...movie} />
-            ))}
-          </Row>
+          <React.Fragment key={category}>
+            <Title level={2} className={styles.movieCategoryLabel}>
+              {capitalize(category)}
+            </Title>
+            <Row
+              key={category}
+              gutter={[16, 32]}
+              className={styles.row}
+              wrap={false}
+            >
+              {movies[
+                category as keyof Omit<
+                  MovieListState,
+                  "dataLoaded" | "error" | "loading"
+                >
+              ].map((movie) => (
+                <Col span={4} key={movie.id}>
+                  <ItemCard {...movie} />
+                </Col>
+              ))}
+            </Row>
+          </React.Fragment>
         ))}
       </div>
     </>
