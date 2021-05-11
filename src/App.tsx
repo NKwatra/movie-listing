@@ -14,10 +14,10 @@ function App() {
   return (
     <Layout>
       <Router>
-        <Header>
+        <Header style={{ position: "fixed", width: "100%", zIndex: 1 }}>
           <Navbar />
         </Header>
-        <Content>
+        <Content style={{ paddingTop: 64 }}>
           <Switch>
             <Route path="/:media_type/:id">
               <Detail />
