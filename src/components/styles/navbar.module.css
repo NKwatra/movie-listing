@@ -1,14 +1,18 @@
 .activeLink {
-  color: #ffffff;
+  color: #ffffff !important;
   font-weight: bolder;
 }
 
+.activeLink:hover {
+  color: #ffffff !important;
+}
+
 .link {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .link:hover {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .logo {

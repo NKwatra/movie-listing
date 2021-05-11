@@ -1,30 +1,29 @@
 import { Alert, Col, Row, Spin, Typography } from "antd";
 import React from "react";
-import {
-  loadAllMovies,
-  movieCategories,
-  selectMovies,
-} from "../redux/reducers/movie";
 import { capitalize } from "../lib/utils";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
-import { MovieListState } from "../types/reducers/movie";
 import ItemCard from "../components/ItemCard";
 import styles from "./styles/page.module.css";
 import { useHistory } from "react-router";
+import {
+  loadAllShows,
+  selectShows,
+  showCategories,
+} from "../redux/reducers/shows";
+import { TVShowsListState } from "../types/reducers/shows";
 
 const { Title } = Typography;
 
-const Movies: React.FC = () => {
-  const { error, loading, dataLoaded, ...movies } =
-    useAppSelector(selectMovies);
+const Shows: React.FC = () => {
+  const { error, loading, dataLoaded, ...shows } = useAppSelector(selectShows);
   const dispatch = useAppDispatch();
   const history = useHistory();
 
   React.useEffect(() => {
-    if (!dataLoaded && movies.now_playing.length === 0) {
-      dispatch(loadAllMovies());
+    if (!dataLoaded && shows.top_rated.length === 0) {
+      dispatch(loadAllShows());
     }
-  }, [dataLoaded, movies.now_playing, dispatch]);
+  }, [dataLoaded, shows.top_rated, dispatch]);
 
   if (loading) {
     return (
@@ -46,7 +45,7 @@ const Movies: React.FC = () => {
         />
       )}
       <div className={styles.container}>
-        {movieCategories.map((category) => (
+        {showCategories.map((category) => (
           <React.Fragment key={category}>
             <Title level={2} className={styles.movieCategoryLabel}>
               {capitalize(category)}
@@ -57,16 +56,16 @@ const Movies: React.FC = () => {
               className={styles.row}
               wrap={false}
             >
-              {movies[
+              {shows[
                 category as keyof Omit<
-                  MovieListState,
+                  TVShowsListState,
                   "dataLoaded" | "error" | "loading"
                 >
-              ].map((movie) => (
-                <Col span={4} key={movie.id}>
+              ].map((show) => (
+                <Col span={4} key={show.id}>
                   <ItemCard
-                    {...movie}
-                    onClick={() => history.push(`/movie/${movie.id}`)}
+                    {...show}
+                    onClick={() => history.push(`/tv/${show.id}`)}
                   />
                 </Col>
               ))}
@@ -78,4 +77,4 @@ const Movies: React.FC = () => {
   );
 };
 
-export default Movies;
+export default Shows;

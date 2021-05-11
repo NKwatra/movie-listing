@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Movies from "./routes/Movies";
 import Home from "./routes/Home";
 import Detail from "./routes/Detail";
+import Shows from "./routes/TVshows";
 
 const { Header, Content } = Layout;
 
@@ -25,7 +26,7 @@ function App() {
               <Movies />
             </Route>
             <Route path="/tv-shows">
-              <span>TV Shows</span>
+              <Shows />
             </Route>
             <Route path="/">
               <Home />

@@ -1,6 +1,6 @@
-import { Alert, Col, Rate, Row, Space, Spin, Typography } from "antd";
+import { Alert, Col, Row, Space, Spin, Typography } from "antd";
 import React from "react";
-import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
+import { CircularProgressbar } from "react-circular-progressbar";
 import { useParams } from "react-router";
 import { useItemDetail } from "../lib/hooks";
 import { formatRuntime } from "../lib/utils";
@@ -66,7 +66,8 @@ const Detail: React.FC = () => {
                 <Text strong>{genreText}</Text>
                 <Text strong>•</Text>
                 <Text strong>
-                  {formatRuntime(data?.runtime || data?.episode_run_time[0])}
+                  {(data?.runtime || data?.episode_run_time?.length) &&
+                    formatRuntime(data?.runtime || data?.episode_run_time[0])}
                 </Text>
               </Space>
             </div>
