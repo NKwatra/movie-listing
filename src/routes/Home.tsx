@@ -5,10 +5,12 @@ import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { loadTrendingItem, selectHome } from "../redux/reducers/home";
 import styles from "./styles/page.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { useHistory } from "react-router";
 
 const Home: React.FC = () => {
   const { dataLoaded, loading, error, items } = useAppSelector(selectHome);
   const dispatch = useAppDispatch();
+  const history = useHistory();
 
   React.useEffect(() => {
     if (!dataLoaded && items.length === 0) {
@@ -40,11 +42,6 @@ const Home: React.FC = () => {
         />
       ) : null}
       <div className={styles.container}>
-        {/* <Row gutter={[16, 32]} className={styles.row}>
-          {items.map((item) => (
-            <ItemCard key={item.id} {...item} />
-          ))}
-        </Row> */}
         <InfiniteScroll
           next={loadItemsOnPage}
           hasMore
@@ -56,7 +53,10 @@ const Home: React.FC = () => {
             grid={{ gutter: 16, column: 6 }}
             renderItem={(item) => (
               <List.Item key={item.id}>
-                <ItemCard {...item} />
+                <ItemCard
+                  {...item}
+                  onClick={() => history.push(`/${item.media_type}/${item.id}`)}
+                />
               </List.Item>
             )}
           />

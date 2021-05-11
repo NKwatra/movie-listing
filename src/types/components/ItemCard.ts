@@ -5,4 +5,5 @@ export type ItemCardProps = {
   overview: string;
   vote_average: number;
   first_air_date: string | undefined;
+  onClick: () => void;
 };

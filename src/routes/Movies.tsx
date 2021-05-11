@@ -63,7 +63,7 @@ const Movies: React.FC = () => {
                 >
               ].map((movie) => (
                 <Col span={4} key={movie.id}>
-                  <ItemCard {...movie} />
+                  <ItemCard {...movie} onClick={() => {}} />
                 </Col>
               ))}
             </Row>

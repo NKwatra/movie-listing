@@ -11,6 +11,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
   release_date,
   vote_average,
   first_air_date,
+  onClick,
 }) => {
   return (
     <Card
@@ -22,6 +23,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
           alt="poster"
         />
       }
+      onClick={onClick}
     >
       <Card.Meta
         description={

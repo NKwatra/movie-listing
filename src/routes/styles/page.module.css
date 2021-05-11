@@ -18,3 +18,26 @@
 .movieCategoryLabel {
   margin-top: 1.5rem;
 }
+
+.detailPageReleaseYear {
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.detailGenres {
+  position: relative;
+  top: -1em;
+}
+
+.responsiveImage {
+  max-width: 100%;
+}
+
+.tagline {
+  font-weight: 300 !important;
+  font-style: italic;
+}
+
+.ratingContainer {
+  width: 19%;
+}
