@@ -6,7 +6,7 @@ export const capitalize = (title: string) => {
 };
 
 export const formatRuntime = (runtime: number | undefined) => {
-  if (!runtime) return "";
+  if (!runtime) return "0m";
   return runtime < 60
     ? `${runtime}m`
     : `${Math.floor(runtime / 60)}h ${runtime % 60}m`;

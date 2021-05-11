@@ -7,6 +7,7 @@ import { formatRuntime } from "../lib/utils";
 import { DetailRouteParams } from "../types/components/DetailRoute";
 import styles from "./styles/page.module.css";
 import "react-circular-progressbar/dist/styles.css";
+import CastCard from "../components/CastCard";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -66,13 +67,14 @@ const Detail: React.FC = () => {
                 <Text strong>{genreText}</Text>
                 <Text strong>•</Text>
                 <Text strong>
-                  {(data?.runtime || data?.episode_run_time?.length) &&
-                    formatRuntime(data?.runtime || data?.episode_run_time[0])}
+                  {data?.runtime || data?.episode_run_time?.length
+                    ? formatRuntime(data?.runtime || data?.episode_run_time[0])
+                    : "0m"}
                 </Text>
               </Space>
             </div>
             <div className={styles.ratingContainer}>
-              {data?.vote_average && (
+              {data?.vote_average !== undefined && (
                 <CircularProgressbar
                   maxValue={10}
                   value={data.vote_average}
@@ -86,7 +88,7 @@ const Detail: React.FC = () => {
               className={styles.tagline}
               ellipsis={{ rows: 1, expandable: true }}
             >
-              {data?.tagline}
+              {data?.tagline || "Not Available"}
             </Title>
             <div>
               <Title level={5}>Overview</Title>
@@ -94,11 +96,23 @@ const Detail: React.FC = () => {
                 type="secondary"
                 ellipsis={{ rows: 3, expandable: true }}
               >
-                {data?.overview}
+                {data?.overview || "Not Available"}
               </Paragraph>
             </div>
           </Space>
         </Col>
+      </Row>
+      <Title level={2} className={styles.movieCategoryLabel}>
+        Cast
+      </Title>
+      <Row gutter={[16, 32]} className={styles.row} wrap={false}>
+        {data?.cast
+          .filter((member) => member.profile_path)
+          .map((member) => (
+            <Col span={4} key={member.id}>
+              <CastCard {...member} />
+            </Col>
+          ))}
       </Row>
     </div>
   );
