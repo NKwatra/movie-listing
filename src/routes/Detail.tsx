@@ -109,7 +109,7 @@ const Detail: React.FC = () => {
         {data?.cast
           .filter((member) => member.profile_path)
           .map((member) => (
-            <Col span={4} key={member.id}>
+            <Col span={5} key={member.id}>
               <CastCard {...member} />
             </Col>
           ))}

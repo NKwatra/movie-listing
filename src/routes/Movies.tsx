@@ -63,7 +63,7 @@ const Movies: React.FC = () => {
                   "dataLoaded" | "error" | "loading"
                 >
               ].map((movie) => (
-                <Col span={4} key={movie.id}>
+                <Col span={7} key={movie.id}>
                   <ItemCard
                     {...movie}
                     onClick={() => history.push(`/movie/${movie.id}`)}

@@ -62,7 +62,7 @@ const Shows: React.FC = () => {
                   "dataLoaded" | "error" | "loading"
                 >
               ].map((show) => (
-                <Col span={4} key={show.id}>
+                <Col span={7} key={show.id}>
                   <ItemCard
                     {...show}
                     onClick={() => history.push(`/tv/${show.id}`)}

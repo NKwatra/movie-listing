@@ -40,7 +40,12 @@ const home = createSlice({
       state.dataLoaded = true;
       state.error = false;
       state.loading = false;
-      state.items.push(...action.payload.results);
+      state.items.push(
+        ...action.payload.results.filter(
+          (result) =>
+            result.media_type === "movie" || result.media_type === "tv"
+        )
+      );
     },
     //@ts-ignore
     [loadTrendingItem.rejected]: (state) => {

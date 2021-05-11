@@ -50,7 +50,7 @@ const Home: React.FC = () => {
         >
           <List
             dataSource={items}
-            grid={{ gutter: 16, column: 6 }}
+            grid={{ gutter: 16, column: 4 }}
             renderItem={(item) => (
               <List.Item key={item.id}>
                 <ItemCard
