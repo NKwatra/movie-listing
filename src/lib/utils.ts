@@ -1,3 +1,8 @@
+/**
+ *
+ * @param title category(type) of a movie / show
+ * @returns type formatted in Title Case.
+ */
 export const capitalize = (title: string) => {
   return title
     .split(/[^a-z]/)
@@ -5,6 +10,11 @@ export const capitalize = (title: string) => {
     .join(" ");
 };
 
+/**
+ *
+ * @param runtime runtime of a show/movie
+ * @returns runtime formatted in minutes/hours.
+ */
 export const formatRuntime = (runtime: number | undefined) => {
   if (!runtime) return "0m";
   return runtime < 60

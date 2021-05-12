@@ -1,6 +1,11 @@
 import { Item } from "../types/item";
 import { client } from "./client";
 
+/**
+ *
+ * @param page  page of api from which to load items
+ * @returns  List of trending items
+ */
 export const loadHomePageItems = (
   page: number = 1
 ): Promise<{ results: Item[] }> => {

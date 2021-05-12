@@ -7,6 +7,17 @@ type PromisesTupleType = [
   Promise<Cast[]> | undefined
 ];
 
+/**
+ *
+ * @param media_type the type of media to load detail for : Allowed value "movie" or "tv"
+ * @param id  reference id for the given item
+ * @returns details of item and status of network request.
+ *            {
+ *              loading: whether network request is in progress
+ *              data: details of item
+ *              error: whether the network request failed
+ *            }
+ */
 export const useItemDetail = (media_type: string, id: string) => {
   const [loading, setLoading] = React.useState(true);
   const [data, setData] = React.useState<null | ItemDetail>(null);

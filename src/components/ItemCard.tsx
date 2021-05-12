@@ -1,4 +1,4 @@
-import { Card, Space } from "antd";
+import { Card, Space, Typography } from "antd";
 import React from "react";
 import { ItemCardProps } from "../types/components/ItemCard";
 import styles from "./styles/moviecard.module.css";
@@ -28,9 +28,9 @@ const ItemCard: React.FC<ItemCardProps> = ({
       <Card.Meta
         description={
           <Space direction="vertical">
-            <div className={styles.description}>
-              {overview.substring(0, 40) + "..."}
-            </div>
+            <Typography.Paragraph ellipsis={{ rows: 2 }}>
+              {overview}
+            </Typography.Paragraph>
             <Space>
               <span className={styles.ratingContainer}>
                 {vote_average}&nbsp;

@@ -4,8 +4,8 @@ import { client } from "./client";
 
 /**
  *
- * @param type : the type of show to load eg: top_rated, popular, etc
- * @returns
+ * @param type  the type of show to load eg: top_rated, popular, etc
+ * @returns details of show of a given type
  */
 function loadShowsOfType(
   type: keyof Omit<TVShowsListState, "dataLoaded" | "error" | "loading">
@@ -20,7 +20,7 @@ function loadShowsOfType(
 }
 
 /**
- * Loads all the movies to be displayed on movies page
+ * Loads all the shows to be displayed on TV shows page
  */
 export function loadShows() {
   let promises: ReturnType<typeof loadShowsOfType>[] = [];

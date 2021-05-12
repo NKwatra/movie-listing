@@ -4,8 +4,8 @@ import { client } from "./client";
 
 /**
  *
- * @param type : the type of movies to load eg: now_playing, popular, etc
- * @returns
+ * @param type the type of movies to load eg: now_playing, popular, etc
+ * @returns list of movie details of a given type
  */
 function loadMoviesOfType(
   type: keyof Omit<MovieListState, "dataLoaded" | "error" | "loading">
